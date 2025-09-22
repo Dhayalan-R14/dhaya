@@ -1,0 +1,18 @@
+# azure-pipelines.yml
+trigger:
+- main   # or master branch, adjust based on your repo
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+
+- script: |
+    python --version
+    pip install -r requirements.txt || echo "No requirements.txt found"
+    python hello.py
+  displayName: 'Run hello.py'
