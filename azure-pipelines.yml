@@ -16,3 +16,4 @@ steps:
     pip install -r requirements.txt || echo "No requirements.txt found"
     python hello.py
   displayName: 'Run hello.py'
+
